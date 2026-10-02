@@ -1,15 +1,18 @@
 {
   "name": "complete-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a backend project",
   "keywords": [
     "backend",
     "javascript"
   ],
   "author": "Abhinav Sahu",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
