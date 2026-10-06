@@ -11,7 +11,7 @@ connectDB()
 .then( ()=>{
   app.listen(process.env.PORT || 8000, ()=>{
     console.log(`Server is running on port: ${process.env.PORT}`);
-    app.on( "error" , ()=>{  // here error is an event and callback prints the actual error.
+    app.on( "error" , (error)=>{  // here error is an event and callback prints the actual error, app.on-> Express server/listening se related error ke liye.
       console.log("Error:", error);
       throw error;
     })
@@ -19,7 +19,7 @@ connectDB()
   })
 })
 
-.catch((err)=>{
+.catch((err)=>{  //→ MongoDB connection fail hone par.
   console.error("MongoDB connection failed:", err)
 }
 )

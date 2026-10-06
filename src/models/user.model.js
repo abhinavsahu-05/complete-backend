@@ -50,17 +50,11 @@ const userSchema = new Schema({
         type: String
     }
 
-
-
-
-
-
-
 }, {timestamps: true})
 
 userSchema.pre("save", function(next){  // pre-> hook, save-> event
     if(!this.isModified("password"))  return next(); // check krta h agar kuchh modify nhi hua to return kr jao
-    this.password = bcrypt.has(this.password, 10)
+    this.password = bcrypt.hash(this.password, 10)
     next()
 })
 
@@ -79,7 +73,7 @@ userSchema.methods.generateAccessToken = function(){  // ye ek jwt token h
             fullName: this.fullName
 
     },
-    process.env.ACCESS_TOKEN_SECRET, 
+    process.env.ACCESS_TOKEN_SECRET,  // sha 256 se generate kia h 
     {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRY
     }
