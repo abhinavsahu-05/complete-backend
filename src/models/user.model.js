@@ -52,9 +52,9 @@ const userSchema = new Schema({
 
 }, {timestamps: true})
 
-userSchema.pre("save", function(next){  // pre-> hook, save-> event
+userSchema.pre("save", async function(next){  // pre-> hook, save-> event
     if(!this.isModified("password"))  return next(); // check krta h agar kuchh modify nhi hua to return kr jao
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 })
 
