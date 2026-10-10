@@ -1,0 +1,5 @@
+1. netstat -ano | findstr :8000
+2. tasklist | findstr node.exe  // phir jo pid ae use kill kro
+3. taskkill /PID 15448 /F
+4. netstat -ano | findstr :8000  // check if free h ya nhi port, no response-> free h 
+5. npm run dev
