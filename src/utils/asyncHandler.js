@@ -6,8 +6,6 @@ asyncHandler ka kaam hai us error ko pakadkar next(error) se error-handling midd
 Yaad rakhna bhai: ApiError error ki details deta hai, aur asyncHandler error ko aage pahunchata hai. 
  */
 
-
-
 const asyncHandler = (requestHandler)=>{
     return (req, res, next)=>{
         Promise.resolve(requestHandler(req, res, next)).
